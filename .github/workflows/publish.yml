@@ -24,9 +24,6 @@ jobs:
         run: |
           # from refs/tags/v1.2.3 get 1.2.3
           VERSION=$(echo $GITHUB_REF | sed 's#.*/v##')
-          echo "::set-output name=version::$VERSION"
-          VERSION=$VERSION make update_version
-          
           PLACEHOLDER="__version__\ =\ \"0.0.0+dev0\""
 
           grep "$(PLACEHOLDER)" "setup.py"
